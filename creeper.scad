@@ -1,5 +1,5 @@
-module creeper() {
-    cube([1, 1, 1]);
+module creeper(size=1) {
+    cube([size, size, size], true);
 }
 
-creeper();
+creeper(size=10);
