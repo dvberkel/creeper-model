@@ -43,4 +43,4 @@ module foot(size=1, foot_height, epsilon) {
     ], true);
 }
 
-creeper(size=5);
+color("green") creeper(size=5);
