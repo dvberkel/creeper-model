@@ -1,5 +1,12 @@
 module creeper(size=1) {
-    foot(size);
+    feet(size);
+}
+
+module feet(size=1) {
+    union() {
+        translate([0,0,0]) foot(size);
+        translate([0,2*size,0]) foot(size);
+    }
 }
 
 module foot(size=1) {
