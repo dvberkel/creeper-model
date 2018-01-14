@@ -1,6 +1,6 @@
 module creeper(size=1) {
     head_height = 4;
-    body_height = 8;
+    body_height = 6;
     feet_height  = 3;
     union() {
         head(size, head_height, body_height, feet_height);
