@@ -1,3 +1,9 @@
+module connectors(tolerance= 0.1, base_size=10, wall_thickness=1, plate_height=1, slit_depth=1, stem_height=5, stem_radius=2, knob_height=3, knob_radius=2.5) {
+    height = plate_height + stem_height + knob_height + 2*wall_thickness;
+    translate([0, 0, 0]) female_connector(base_size, height, wall_thickness, stem_radius+tolerance, stem_height-tolerance);
+    translate([2*base_size, 0, 0]) male_connector(base_size, plate_height, slit_depth, stem_height, stem_radius, knob_height, knob_radius);
+}
+
 module female_connector(base_size=10, height=10, wall_thickness=1, hole_radius=2, bottom_height=5) {
     translate([-base_size/2, -base_size/2, 0]) difference() {
         cube([base_size, base_size, height]);
@@ -37,5 +43,6 @@ module plate(size=10, height=1) {
     translate([-size/2, -size/2, 0]) cube([size, size, height]);
 }
 
-translate([0, 0, 0]) female_connector();
-translate([20, 0, 0]) male_connector();
+for (index=[0:1:3]) {
+    translate([0, 20*index, 0]) connectors(tolerance=0.1*(index + 1));
+}
