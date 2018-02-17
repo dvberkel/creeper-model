@@ -43,6 +43,8 @@ module plate(size=10, height=1) {
     translate([-size/2, -size/2, 0]) cube([size, size, height]);
 }
 
+
+$fs = 0.5;
 for (index=[0:1:3]) {
     translate([0, 20*index, 0]) connectors(tolerance=0.1*(index + 1));
 }
